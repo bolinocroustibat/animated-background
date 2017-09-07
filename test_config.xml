@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding='UTF-8' ?>
+
+<root>
+  <config
+  framerate="20" 
+  max_pixels_per_object="60000"
+  initial_pixels_per_object="100000"
+  />
+
+  <floater type="grey_circle" 
+  quantity="20" 
+  maximum_speed="18" 
+  maximum_depth_speed="1.2" 
+  maximum_rotation_speed="18" 
+  acceleration="0.6"
+  min_depth="0"
+  min_depth_probability="0.01"
+  depth_step="8"
+  max_depth="20"
+  min_duration="2"
+  max_duration="6"
+  min_size="80"
+  max_size="180"
+  min_luminosity="90"
+  max_luminosity="120"
+  />
+
+</root>
