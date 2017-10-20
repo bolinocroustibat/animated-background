@@ -1,8 +1,30 @@
 $(document).ready(function(){
-	var initialRotation = 0;
-	animateDiv($('#b'), initialRotation);
-	animateDiv($('#c'), initialRotation);
+
+	var imgPath = "images_color/ciseaux.png";
+	div = createDiv(imgPath);
+	console.log(div);
+
+//	var initialRotation = 0;
+//	$('#b').css({"filter": "blur(1px)"})
+//	animateDiv($('#b'), initialRotation);
+//	animateDiv($('#c'), initialRotation);
 });
+
+function createDiv(imgPath) {
+	var imgLoader = new Image(); // create a new image object
+	imgLoader.onload = function() { // assign onload handler
+		var height = imgLoader.height;
+		var width = imgLoader.width;
+		$("body").append("<div></div>");
+		var div = $("body > div:last"); // select last div created in body
+		div.css("background-image", "url("+imgPath+")");
+		div.css("background-size", "contain");
+		div.css("background-repeat", "no-repeat");
+		div.width(width).height(height);
+		return div;
+	}
+	imgLoader.src = imgPath; // set the image source
+}
 
 function animateDiv(element, rotation){
 	var oldPosition = element.offset();

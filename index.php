@@ -45,11 +45,8 @@
 	<body>
 
 		<!-- <div id="a"></div> -->
-
-		<div id="b"></div>
-
-		<div id="c"></div>
-
+		<!-- <div id="a"></div> -->
+		<!-- <div id="a"></div> -->
 		<!-- <img id="i" src ="images_color/dossier.png" /> -->
 
 	</body>
