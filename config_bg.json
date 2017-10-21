@@ -1,0 +1,30 @@
+config =
+[
+	{	"imgPath": "images_color/café.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/ciseaux.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/crayon.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/dossier.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/gomme.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/perforatrice.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/scotch.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/siège.png",
+		"speed": "0.05"
+	},
+	{	"imgPath": "images_color/trombone.png",
+		"speed": "0.05"
+	}
+]

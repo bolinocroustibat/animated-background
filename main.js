@@ -1,27 +1,35 @@
 $(document).ready(function(){
-
-	var imgPath = "images_color/ciseaux.png";
-	div = createDiv(imgPath);
-	console.log(div);
-
-//	var initialRotation = 0;
-//	$('#b').css({"filter": "blur(1px)"})
-//	animateDiv($('#b'), initialRotation);
-//	animateDiv($('#c'), initialRotation);
+	config.forEach((item) => {
+		console.log(item.imgPath);
+		createDiv(item.imgPath);
+	})
 });
+
+//function createDiv2(imgPath) {
+//	$("body").append("<div></div>");
+//	var div = $("body > div:last"); // select last div created in body
+//	div.css("background-image", "url("+imgPath+")");
+//	div.css("background-size", "contain");
+//	div.css("background-repeat", "no-repeat");
+//	return div;
+//}
 
 function createDiv(imgPath) {
 	var imgLoader = new Image(); // create a new image object
 	imgLoader.onload = function() { // assign onload handler
 		var height = imgLoader.height;
 		var width = imgLoader.width;
-		$("body").append("<div></div>");
-		var div = $("body > div:last"); // select last div created in body
+		$("#wrapper").append("<div id='d'></div>");
+		var div = $("#wrapper > div:last"); // select last div created in body
 		div.css("background-image", "url("+imgPath+")");
 		div.css("background-size", "contain");
 		div.css("background-repeat", "no-repeat");
+		div.css("position", "fixed");
 		div.width(width).height(height);
-		return div;
+		var initialPosition = makeNewPosition(div);	
+		div.css({top: initialPosition[1], left: initialPosition[0]});
+		var initialAngle = Math.floor(Math.random() * 360) + 1;
+		animateDiv(div, initialAngle);
 	}
 	imgLoader.src = imgPath; // set the image source
 }
@@ -31,10 +39,11 @@ function animateDiv(element, rotation){
 	var newPosition = makeNewPosition(element);
 	var speed = calcSpeed([oldPosition.top, oldPosition.left], newPosition);
 	element.animate(
-		{ 	top: newPosition[0], left: newPosition[1] }, // destination point
+		{ 	left: newPosition[0],top: newPosition[1] }, // destination point
 		{ 	duration: speed,
 			step: function(){
 				rotation += Math.random() - 0.5; // choose a random rotation degree to add, between -0,5 and 0,5
+				//element.css()
 				element.css({'transform' : 'rotate('+ rotation +'deg)'});
 			},
 			complete: function(){
@@ -46,18 +55,18 @@ function animateDiv(element, rotation){
 
 function makeNewPosition(element){
 	// Get viewport dimensions (remove the dimension of the div)
-	var h = $(window).height() - element.height();
 	var w = $(window).width() - element.width();
-	var nh = Math.floor(Math.random() * h);
+	var h = $(window).height() - element.height();
 	var nw = Math.floor(Math.random() * w);
-	return [nh,nw];    
+	var nh = Math.floor(Math.random() * h);
+	return [nw,nh];    
 }
 
 function calcSpeed(prev, next) {
 	var x = Math.abs(prev[1] - next[1]);
 	var y = Math.abs(prev[0] - next[0]);
 	var greatest = x > y ? x : y;
-	var speedModifier = 0.03;
+	var speedModifier = 0.05;
 	var speed = Math.ceil(greatest/speedModifier);
 	return speed;
 }
