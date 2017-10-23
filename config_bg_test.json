@@ -1,4 +1,4 @@
-config =
+bgConfig =
 [
 	{	"imgPath": "images/calculator.gif",
 		"speed": 5,

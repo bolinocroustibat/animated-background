@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	config.forEach((item) => {
+	bgConfig.forEach((item) => {
 		createDiv(item.imgPath, item.speed, item.possibleAngle, item.possibleBlur);
 	})
 });
@@ -33,7 +33,7 @@ function animateDiv(element, speed, initialRotation, initialBlur, possibleAngle,
 	var blur = initialBlur;
 	var finalBlur = makeNewBlur(possibleBlur);
 	var stepBlur = (finalBlur-blur)/(duration/jQuery.fx.interval);
-	element.animate(
+	element.velocity(
 		{	left: newPosition[0], top: newPosition[1] }, // destination point
 		{	duration: duration,
 			step: function(){

@@ -19,6 +19,7 @@
 			}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="velocity.min.js"></script>
 		<script type="text/javascript" src="config_bg_test.json"></script>
 		<script type="text/javascript" src='animated_background.js'></script>
 	</head>
