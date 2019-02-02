@@ -5,8 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style type="text/css">
 			html, body {
-			    height: 100%;
-			    margin: 0;
+				height: 100%;
+				margin: 0;
 			}
 			#animated-background-wrapper {
 				position:absolute;
@@ -18,10 +18,10 @@
 				z-index: -9999;
 			}
 		</style>
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-		<script src="velocity.min.js"></script>
-		<script type="text/javascript" src="config_bg_test.json"></script>
-		<script type="text/javascript" src='animated_background.js'></script>
+		<script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script>
+		<script src="config_bg_test.json"></script>
+		<script src='animated_background.js'></script>
 	</head>
 	
 	<body>
