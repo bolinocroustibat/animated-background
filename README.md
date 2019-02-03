@@ -21,5 +21,10 @@ Call your configuration file after JQuery and Velocity:
 ```
 <script src="config_bg_test.json"></script>
 ```
+And finally, call the script:
+
+```
+<script src='animated_background.js'></script>
+```
 
 And you're done!
