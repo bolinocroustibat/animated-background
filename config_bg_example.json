@@ -1,8 +1,8 @@
 bgConfig =
 [
 	{	"imgPath": "images/calculator.gif",
-		"speed": 5,
-		"possibleAngle": [-45,45],
+		"speed": 1,
+		"possibleAngle": [-90,90],
 		"possibleBlur": [0,0]
 	},
 	{	"imgPath": "images/cardfile.gif",
@@ -16,23 +16,23 @@ bgConfig =
 		"possibleBlur": [0,5]
 	},
 	{	"imgPath": "images/character.gif",
-		"speed": 5,
+		"speed": 4,
 		"possibleAngle": [-45,45],
 		"possibleBlur": [0,5]
 	},
 	{	"imgPath": "images/keyboard.gif",
-		"speed": 5,
-		"possibleAngle": [-45,45],
+		"speed": 3,
+		"possibleAngle": [0,0],
 		"possibleBlur": [0,5]
 	},
 	{	"imgPath": "images/mouse.gif",
-		"speed": 5,
+		"speed": 0,
 		"possibleAngle": [-45,45],
 		"possibleBlur": [0,5]
 	},
 	{	"imgPath": "images/notepad.gif",
-		"speed": 5,
-		"possibleAngle": [-45,45],
+		"speed": 2,
+		"possibleAngle": [0,0],
 		"possibleBlur": [0,5]
 	},
 	{	"imgPath": "images/paintbrush.gif",
@@ -56,17 +56,17 @@ bgConfig =
 		"possibleBlur": [5,5]
 	},
 	{	"imgPath": "images/controlpanel.gif",
-		"speed": 5,
+		"speed": 2,
 		"possibleAngle": [-45,45],
 		"possibleBlur": [5,5]
 	},
 	{	"imgPath": "images/mailbox.gif",
-		"speed": 5,
+		"speed": 3,
 		"possibleAngle": [-45,45],
 		"possibleBlur": [5,5]
 	},
 	{	"imgPath": "images/msdos.gif",
-		"speed": 5,
+		"speed": 4,
 		"possibleAngle": [-45,45],
 		"possibleBlur": [5,5]
 	}
