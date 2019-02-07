@@ -27,4 +27,4 @@ And finally, call the script:
 <script src='animated_background.js'></script>
 ```
 
-Then place the HTML wrapper in your <body> and you're done!
+Then place the HTML wrapper in your HTML body, and you're done!
