@@ -15,7 +15,7 @@ This script need JQuery and Velocity to work.
 
 ## Getting Started
 
-Place your images in the "images" folder. Prefer very small GIF or PNG image files. Configuration is to be made in a JSON file. Follow the syntax of the example "config_bg_test.json" with the right paths to your images.
+Place your images in the "images" folder. Prefer very small GIF or PNG image files. Configuration is to be made in a JSON file, in which you follow the syntax of the example "config_bg_test.json" with the right paths to your images.
 Call your configuration file after JQuery and Velocity:
 
 ```
@@ -27,4 +27,4 @@ And finally, call the script:
 <script src='animated_background.js'></script>
 ```
 
-And you're done!
+Then place the HTML wrapper in your <body> and you're done!
