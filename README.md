@@ -1,9 +1,9 @@
 # Animated background in JS
 
 
-### Dependencies
+## Dependencies
 
-This script need JQuery and Velocity to work.
+This script need JQuery and Velocity to work, so you have to call those on your webpage, like that (those versions work, newer have not been tested):
 
 ```
 <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
