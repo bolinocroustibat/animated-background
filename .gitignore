@@ -45,6 +45,3 @@ nginx/
 .env
 .env.*
 !.env.example
-
-# biome config
-biome.json

@@ -1,17 +1,5 @@
-document.addEventListener("DOMContentLoaded", (event) => {
-	const animatedBackgroundWrapper = document.getElementById(
-		"animated-background-wrapper",
-	)
-	for (const item of bgConfig) {
-		createDiv(
-			animatedBackgroundWrapper,
-			item.imgPath,
-			item.speed,
-			item.possibleAngle,
-			item.possibleBlur,
-		)
-	}
-})
+import Velocity from "velocity-animate"
+import "./style.css"
 
 const createDiv = (
 	animatedBackgroundWrapper,
@@ -82,9 +70,9 @@ const animateDiv = (
 			duration: duration,
 			step: () => {
 				rotation += stepRotation
-				element.style.transform = `rotate(${rotation}deg)`
+				element.css({ transform: `rotate(${rotation}deg)` })
 				blur += stepBlur
-				element.style.filter = `blur(${blur}px)`
+				element.css({ filter: `blur(${blur}px)` })
 			},
 			complete: () => {
 				animateDiv(element, speed, rotation, blur, possibleAngle, possibleBlur)
@@ -111,8 +99,7 @@ const makeNewRotation = (possibleAngle) => {
 
 const makeNewBlur = (possibleBlur) => {
 	const blur =
-		Math.floor(Math.random() * (possibleBlur[1] - possibleBlur[0]) * 100) /
-			100 +
+		Math.floor(Math.random() * (possibleBlur[1] - possibleBlur[0])) +
 		possibleBlur[0]
 	return blur
 }
@@ -124,3 +111,20 @@ const calcDuration = (prev, next, speed) => {
 	const duration = Math.ceil((greatest / speed) * 100)
 	return duration
 }
+
+await fetch("config.json")
+	.then((response) => response.json())
+	.then((data) => {
+		let animatedBackgroundWrapper = document.getElementById(
+			"animated-background-wrapper",
+		)
+		for (const item of data.bgConfig) {
+			createDiv(
+				animatedBackgroundWrapper,
+				item.imgPath,
+				item.speed,
+				item.possibleAngle,
+				item.possibleBlur,
+			)
+		}
+	})
