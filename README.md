@@ -18,10 +18,15 @@ The configuration file needs to be called from the HTML page after JQuery and Ve
 ```html
 <script src="config.js"></script>
 ```
-And finally, call the script:
+Then you also need to call the main script from your webpage
 
 ```html
 <script src='animated_background.js'></script>
 ```
 
-Then place the HTML wrapper `<div id="animated-background-wrapper"></div>`in your HTML body, and you're done!
+Finally, place an empty HTML wrapper with the id `animated-background-wrapper` in your HTML, outside of your content:
+```html
+<div id="animated-background-wrapper"></div>
+```
+
+You're done!
