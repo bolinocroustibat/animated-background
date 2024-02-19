@@ -1,77 +1,126 @@
-$(document).ready(function(){
-	bgConfig.forEach((item) => {
-		createDiv(item.imgPath, item.speed, item.possibleAngle, item.possibleBlur);
-	})
-});
-
-function createDiv(imgPath, speed, possibleAngle, possibleBlur) {
-	let imgLoader = new Image(); // create a new image object
-	imgLoader.onload = function() { // assign onload handler
-		let height = imgLoader.height;
-		let width = imgLoader.width;
-		$("#animated-background-wrapper").append("<div></div>");
-		let div = $("#animated-background-wrapper > div:last"); // select last div created in wrapper
-		div.width(width).height(height);
-		div.css({"background-image": "url("+imgPath+")", "background-size": "contain", "background-repeat": "no-repeat", "position": "fixed"});
-		div.css({top: makeNewPosition(div)[1], left: makeNewPosition(div)[0]});
-		let initialRotation = makeNewRotation(possibleAngle);
-		div.css({'transform' : 'rotate('+ initialRotation +'deg)'});
-		let initialBlur = makeNewBlur(possibleBlur);
-		div.css({'filter': 'blur('+ blur +'px)'});
-		animateDiv(div, speed, initialRotation, initialBlur, possibleAngle, possibleBlur);
+document.addEventListener("DOMContentLoaded", (event) => {
+	const animatedBackgroundWrapper = document.getElementById(
+		"animated-background-wrapper",
+	)
+	for (const item of bgConfig) {
+		createDiv(
+			animatedBackgroundWrapper,
+			item.imgPath,
+			item.speed,
+			item.possibleAngle,
+			item.possibleBlur,
+		)
 	}
-	imgLoader.src = imgPath; // set the image source
+})
+
+const createDiv = (
+	animatedBackgroundWrapper,
+	imgPath,
+	speed,
+	possibleAngle,
+	possibleBlur,
+) => {
+	const imgLoader = new Image() // create a new image object
+	imgLoader.onload = () => {
+		// assign onload handler
+		// Create the div and assign initial style
+		const div = document.createElement("div")
+		div.style.width = `${imgLoader.width}px`
+		div.style.height = `${imgLoader.height}px`
+		div.style.backgroundImage = `url(${imgPath})`
+		div.style.position = "fixed"
+		div.style.top = `${makeNewPosition(div)[1]}px`
+		div.style.left = `${makeNewPosition(div)[0]}px`
+		const initialRotation = makeNewRotation(possibleAngle)
+		div.style.transform = `rotate(${initialRotation}deg)`
+		const initialBlur = makeNewBlur(possibleBlur)
+		div.style.filter = `blur(${initialBlur}px)`
+		// Add the div to the end of the wrapper
+		animatedBackgroundWrapper.appendChild(div)
+		// Animate the div
+		animateDiv(
+			div,
+			speed,
+			initialRotation,
+			initialBlur,
+			possibleAngle,
+			possibleBlur,
+		)
+	}
+	imgLoader.src = imgPath // set the image source
 }
 
-function animateDiv(element, speed, initialRotation, initialBlur, possibleAngle, possibleBlur){
-	let oldPosition = element.offset();
-	let newPosition = makeNewPosition(element);
-	let duration = calcDuration([oldPosition.top, oldPosition.left], newPosition, speed);
-	let rotation = initialRotation;
-	let finalRotation = makeNewRotation(possibleAngle);
-	let stepRotation = (finalRotation-rotation)/(duration/jQuery.fx.interval); // angle to change for each step = total rotation to achieve / number of animation steps
-	let blur = initialBlur;
-	let finalBlur = makeNewBlur(possibleBlur);
-	let stepBlur = (finalBlur-blur)/(duration/jQuery.fx.interval);
-	element.velocity(
-		{	left: newPosition[0], top: newPosition[1] }, // destination point
-		{	duration: duration,
-			step: function(){
-				rotation += stepRotation;
-				element.css({'transform' : 'rotate(' + rotation + 'deg)'});
-				blur += stepBlur;
-				element.css({'filter': 'blur(' + blur + 'px)'});
+const animateDiv = (
+	element,
+	speed,
+	initialRotation,
+	initialBlur,
+	possibleAngle,
+	possibleBlur,
+) => {
+	const rect = element.getBoundingClientRect()
+	const oldPosition = {
+		top: rect.top + window.scrollY,
+		left: rect.left + window.scrollX,
+	}
+	const newPosition = makeNewPosition(element)
+	const duration = calcDuration(
+		[oldPosition.top, oldPosition.left],
+		newPosition,
+		speed,
+	)
+	let rotation = initialRotation
+	const finalRotation = makeNewRotation(possibleAngle)
+	const stepRotation = (finalRotation - rotation) / (duration / 13) // angle to change for each step = total rotations to achieve / number of animation steps
+	let blur = initialBlur
+	const finalBlur = makeNewBlur(possibleBlur)
+	const stepBlur = (finalBlur - blur) / (duration / 13)
+	Velocity(
+		element,
+		{ left: newPosition[0], top: newPosition[1] }, // destination point
+		{
+			duration: duration,
+			step: () => {
+				rotation += stepRotation
+				element.style.transform = `rotate(${rotation}deg)`
+				blur += stepBlur
+				element.style.filter = `blur(${blur}px)`
 			},
-			complete: function(){
-				animateDiv(element, speed, rotation, blur, possibleAngle, possibleBlur);        
-			}
-		}
-	);
-};
-
-// Get viewport dimensions, while removing the dimension of the div
-function makeNewPosition(element){
-	let w = $(window).width() - element.width();
-	let h = $(window).height() - element.height();
-	let nw = Math.floor(Math.random() * w);
-	let nh = Math.floor(Math.random() * h);
-	return [nw,nh];
+			complete: () => {
+				animateDiv(element, speed, rotation, blur, possibleAngle, possibleBlur)
+			},
+		},
+	)
 }
 
-function makeNewRotation(possibleAngle){
-	angle = Math.floor(Math.random() * (possibleAngle[1] - possibleAngle[0])) + possibleAngle[0];
-	return angle;
+const makeNewPosition = (element) => {
+	// Get viewport dimensions (remove the dimension of the div)
+	const w = window.innerWidth - parseInt(element.style.width, 10)
+	const h = window.innerHeight - parseInt(element.style.height, 10)
+	const nw = Math.floor(Math.random() * w)
+	const nh = Math.floor(Math.random() * h)
+	return [nw, nh]
 }
 
-function makeNewBlur(possibleBlur){
-	blur = Math.floor(Math.random() * (possibleBlur[1] - possibleBlur[0])) + possibleBlur[0];
-	return blur;
+const makeNewRotation = (possibleAngle) => {
+	const angle =
+		Math.floor(Math.random() * (possibleAngle[1] - possibleAngle[0])) +
+		possibleAngle[0]
+	return angle
 }
 
-function calcDuration(prev, next, speed) {
-	let x = Math.abs(prev[0] - next[0]);
-	let y = Math.abs(prev[1] - next[1]);
-	let greatest = x > y ? x : y;
-	let duration = Math.ceil(greatest / speed * 100);
-	return duration;
+const makeNewBlur = (possibleBlur) => {
+	const blur =
+		Math.floor(Math.random() * (possibleBlur[1] - possibleBlur[0]) * 100) /
+			100 +
+		possibleBlur[0]
+	return blur
+}
+
+const calcDuration = (prev, next, speed) => {
+	const x = Math.abs(prev[0] - next[0])
+	const y = Math.abs(prev[1] - next[1])
+	const greatest = x > y ? x : y
+	const duration = Math.ceil((greatest / speed) * 100)
+	return duration
 }

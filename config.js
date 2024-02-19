@@ -1,0 +1,86 @@
+const bgConfig = [
+	{
+		imgPath: "images/calculator.gif",
+		speed: 1,
+		possibleAngle: [-90, 90],
+		possibleBlur: [0, 0],
+	},
+	{
+		imgPath: "images/cardfile.gif",
+		speed: 5,
+		possibleAngle: [-45, 45],
+		possibleBlur: [0, 5],
+	},
+	{
+		imgPath: "images/clock.gif",
+		speed: 5,
+		possibleAngle: [-45, 45],
+		possibleBlur: [0, 5],
+	},
+	{
+		imgPath: "images/character.gif",
+		speed: 4,
+		possibleAngle: [-45, 45],
+		possibleBlur: [0, 5],
+	},
+	{
+		imgPath: "images/keyboard.gif",
+		speed: 3,
+		possibleAngle: [0, 0],
+		possibleBlur: [0, 5],
+	},
+	{
+		imgPath: "images/mouse.gif",
+		speed: 0,
+		possibleAngle: [-45, 45],
+		possibleBlur: [0, 5],
+	},
+	{
+		imgPath: "images/notepad.gif",
+		speed: 2,
+		possibleAngle: [0, 0],
+		possibleBlur: [0, 5],
+	},
+	{
+		imgPath: "images/paintbrush.gif",
+		speed: 5,
+		possibleAngle: [-45, 45],
+		possibleBlur: [0, 5],
+	},
+	{
+		imgPath: "images/help.gif",
+		speed: 5,
+		possibleAngle: [-45, 45],
+		possibleBlur: [5, 5],
+	},
+	{
+		imgPath: "images/printer.gif",
+		speed: 5,
+		possibleAngle: [-45, 45],
+		possibleBlur: [5, 5],
+	},
+	{
+		imgPath: "images/filer.gif",
+		speed: 5,
+		possibleAngle: [-45, 45],
+		possibleBlur: [5, 5],
+	},
+	{
+		imgPath: "images/controlpanel.gif",
+		speed: 2,
+		possibleAngle: [-45, 45],
+		possibleBlur: [5, 5],
+	},
+	{
+		imgPath: "images/mailbox.gif",
+		speed: 3,
+		possibleAngle: [-45, 45],
+		possibleBlur: [5, 5],
+	},
+	{
+		imgPath: "images/msdos.gif",
+		speed: 4,
+		possibleAngle: [-45, 45],
+		possibleBlur: [5, 5],
+	},
+]

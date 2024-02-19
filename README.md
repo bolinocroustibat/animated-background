@@ -3,12 +3,7 @@
 
 ## Dependencies
 
-This script need JQuery and Velocity to work, so you have to call those from your HTML page, like that (those versions work, newer have not been tested):
-
-```html
-<script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-```
-
+This script needs Velocity to work, so you have to call those from your HTML page, like that (this versions works, newer have not been tested):
 ```html
 <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script>
 ```
@@ -21,7 +16,7 @@ Configuration is to be made in a JSON file following the example config file `co
 The configuration file needs to be called from the HTML page after JQuery and Velocity:
 
 ```html
-<script src="config.json"></script>
+<script src="config.js"></script>
 ```
 And finally, call the script:
 
