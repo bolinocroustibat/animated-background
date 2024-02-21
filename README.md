@@ -3,9 +3,9 @@
 
 ## Dependencies
 
-This script needs Velocity to work, so you have to call those from your HTML page, like that (this versions works, newer have not been tested):
+This script needs the JS module Velocity to work, so since there is no packaging in this project, you have to call it from your HTML page, like that:
 ```html
-<script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
 ```
 
 ## Getting Started
@@ -13,7 +13,7 @@ This script needs Velocity to work, so you have to call those from your HTML pag
 Place your images in the `images` folder. Prefer very small GIF or PNG image files.
 
 Configuration is to be made in a JSON file following the example config file `config.json` with the right paths to your images.
-The configuration file needs to be called from the HTML page after JQuery and Velocity:
+The configuration file needs to be called from the HTML page after Velocity is called:
 
 ```html
 <script src="config.js"></script>
